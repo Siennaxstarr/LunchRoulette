@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Lunch Selector</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>OnlyFoods</h1>
+        <p>Try new places near you!</p>
+    </header>
+
+    <section id="zip-form">
+        <h2>Enter ZIP Code and Preferred Radius</h2>
+        <form id="zip-radius-form">
+            <label for="zip">ZIP Code:</label>
+            <input type="text" id="zip" name="zip" required>
+            <label for="radius">Preferred Radius (miles):</label>
+            <input type="number" id="radius" name="radius" required>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section id="nearby-restaurants">
+        <h2>Nearby Restaurants</h2>
+        <ul id="restaurant-list">
+        </ul>
+    </section>
+
+    <section id="user-selection">
+        <h2>My Selection</h2>
+        <form id="user-selection-form">
+            <label for="restaurant-name">Enter restaurant name:</label>
+            <input type="text" id="restaurant-name" name="restaurant-name">
+            <button type="button" id="add-restaurant">Add</button>
+        </form>
+        <ul id="selected-restaurants">
+        </ul>
+        <button id="select-lunch">Randomly Select My Lunch</button>
+    </section>
+
+    <div id="lunch-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Your Randomly Selected Lunch Place:</h3>
+            <p id="random-restaurant">No place selected yet.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>

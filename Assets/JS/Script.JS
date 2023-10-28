@@ -5,11 +5,15 @@ var landingPageBtn = document.querySelector('#landing-btn')
 var zipCode = localStorage.getItem("zip");
 var radius = localStorage.getItem("radius");
 
-landingPageBtn.addEventListener('click', function() {
+function savingUserInput() {
     var zipCodeElValue = zipCodeEl.value;
     var radiusElValue = radiusEl.value;
 
     localStorage.setItem("zip", zipCodeElValue);
     localStorage.setItem("radius", radiusElValue);
-})
+
+    location.replace("./landing.html");
+}
+
+landingPageBtn.addEventListener('click', savingUserInput());
 

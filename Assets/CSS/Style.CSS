@@ -24,6 +24,21 @@ html, body {
   }
   /* --------- */
 
+    header {
+        background-color: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        color: whitesmoke;
+        text-align: center;
+        padding: 20px;
+    }
+
+    h1 { 
+        font-size: 36px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
   .btn {
     font-size: 1.8rem;
     padding: 1rem 0;

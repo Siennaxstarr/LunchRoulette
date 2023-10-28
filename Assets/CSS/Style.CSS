@@ -23,6 +23,7 @@ html, body {
       }
   }
   /* --------- */
+<<<<<<< HEAD
 
   .btn {
     font-size: 1.8rem;
@@ -48,3 +49,5 @@ btn[disabled]:hover {
     box-shadow: none;
     transform: none;
 }
+=======
+>>>>>>> 2abd05f914a6beda6c97626b5eec0fb0dd407041

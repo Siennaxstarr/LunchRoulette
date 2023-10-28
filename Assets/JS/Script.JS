@@ -1,4 +1,3 @@
-var zipCodeEl = document.getElementById("#zip");
-var radiusEl = document.getElementById("#radius");
+var zipCodeEl = document.querySelector("#zip");
+var radiusEl = document.querySelector("#radius");
 
-var test = 0;

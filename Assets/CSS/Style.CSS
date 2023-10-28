@@ -32,12 +32,31 @@ html, body {
     }
 
     h1 { 
-        font-size: 36px;
+        font-size: 30px;
     }
 
     p {
-        font-size: 18px;
+        font-size: 30px;
     }
+
+    .card {
+        background-color: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        padding: 20px;
+        margin: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(red, green, blue, alpha);
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
 
   .btn {
     font-size: 1.8rem;

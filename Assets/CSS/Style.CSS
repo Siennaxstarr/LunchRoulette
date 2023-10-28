@@ -44,7 +44,6 @@ html, body {
         padding: 20px;
         margin: 20px;
         border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(red, green, blue, alpha);
     }
 
     h2 {
@@ -56,6 +55,19 @@ html, body {
         flex-direction: column;
         gap: 10px;
     }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
     
 
   .btn {
@@ -72,13 +84,36 @@ html, body {
 
 .btn:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
     transform: translateY(-0.1rem);
     transition: transform 150ms;
+    background-color: #4c00ff; 
+    color: #fff; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+    transition: box-shadow 0.3s ease; 
 }
 
-btn[disabled]:hover {
+.btn[disabled]:hover {
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
 }
+
+a.btn {
+    text-align: center;
+    text-decoration: none;
+    color: #da373d; 
+    padding: 10px 20px;
+    border: 1px solid #da373d;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+
+
+
+
+

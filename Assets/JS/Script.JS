@@ -5,10 +5,13 @@ document.addEventListener('DOMContentLoaded', function () {
     var landingPageBtn = document.querySelector('#landingBtn');
     var selectedRestaurantAddBtn = document.querySelector('#add-restaurant');
     var restaurantNameInput = document.querySelector('#restaurant-name'); //
+    var selectedRestaurants= [];
+    var selectedLunchBtn = document.querySelector("#select-lunch");
+    var randomRestaurantDiv = document.querySelector("#random-restaurant");
+    var restaurantList = document.querySelector('#selected-restaurants');
+    
     var zipCode = localStorage.getItem("zip");
     var radius = localStorage.getItem("radius");
-
-    var restaurantList = document.querySelector('#selected-restaurants');
 
     function redirectPage() {
         location.replace("./landing.html");
@@ -27,25 +30,33 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (selectedRestaurantAddBtn) {
-        selectedRestaurantAddBtn.addEventListener('click', function() {
+        selectedRestaurantAddBtn.addEventListener('click', function () {
             var newLi = document.createElement('li');
             var restaurantNameValue = restaurantNameInput.value; //
             var textNode = document.createTextNode(restaurantNameValue);
             newLi.appendChild(textNode);
             restaurantList.appendChild(newLi);
+            selectedRestaurants.push(restaurantNameValue);
+
+            var parsedData = JSON.stringify(selectedRestaurants)
+            console.log(parsedData)
         });
     }
 
     function lunchRandomGenerate() {
-        var selectedRestaurant = [];
         var warningModal = document.querySelector("#warningModal");
-        restaurantList[(Math.floor(Math.random() * restaurantList.length))];
-        if(selectedRestaurant === null) {
-            
+
+        if(selectedRestaurants.length > 0) {
+        var randomIndex = Math.floor(Math.random() * selectedRestaurants.length);
+        var selectedRestaurant = selectedRestaurants[randomIndex];
+        randomRestaurantDiv.textContent = selectedRestaurant;
+        } else {
+            return warningModal;
         }
     }
-    function lunchRandomButton() {
-        var lunchRandomButtonEl = document.querySelector("#select-lunch");
+
+    if(selectedLunchBtn) {
+        selectedLunchBtn.addEventListener("click", lunchRandomGenerate)
     }
 });
 

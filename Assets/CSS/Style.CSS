@@ -62,7 +62,7 @@ body, html {
     .card {
         background-color: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
         padding: 20px;
-        margin: 20px;
+        margin: 5px;
         border-radius: 5px;
     }
 
@@ -133,6 +133,43 @@ a.btn:hover {
     color: black;
 }
 
+/*----------Landing html---------*/
+
+#nearby-restaurants {
+    padding: 1px 0; 
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#select-lunch {
+    font-family: 'Courier New', Courier, monospace;
+    font-family: bold;
+    font-size: x-large;
+    padding: 10px 30px;
+    border: 1px white;
+    border-radius: 5px;
+}
+
+#user-selection {
+    text-align: center;
+}
+
+#restaurant-name {
+    font-family: 'Courier New', Courier, monospace;
+    font: bold;
+    font-size: xx-large;
+}
+
+.button-container {
+    text-align: center;
+}
+
+#add-restaurant {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: larger;
+    padding: 10px 30px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
 
 
 

@@ -35,5 +35,17 @@ document.addEventListener('DOMContentLoaded', function () {
             restaurantList.appendChild(newLi);
         });
     }
+
+    function lunchRandomGenerate() {
+        var selectedRestaurant = [];
+        var warningModal = document.querySelector("#warningModal");
+        restaurantList[(Math.floor(Math.random() * restaurantList.length))];
+        if(selectedRestaurant === null) {
+            
+        }
+    }
+    function lunchRandomButton() {
+        var lunchRandomButtonEl = document.querySelector("#select-lunch");
+    }
 });
 

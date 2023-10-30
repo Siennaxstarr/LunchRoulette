@@ -117,6 +117,9 @@ body, html {
     transform: none;
 }
 
+.modal {
+    display: none;
+}
 a.btn {
     text-align: center;
     text-decoration: none;
@@ -139,3 +142,7 @@ a.btn:hover {
 
 
 
+
+.modal {
+    display: none;
+}

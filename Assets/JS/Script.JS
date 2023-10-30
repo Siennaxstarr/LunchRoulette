@@ -4,12 +4,14 @@ document.addEventListener('DOMContentLoaded', function () {
     var radiusEl = document.querySelector("#radius");
     var landingPageBtn = document.querySelector('#landingBtn');
     var selectedRestaurantAddBtn = document.querySelector('#add-restaurant');
-    var restaurantNameInput = document.querySelector('#restaurant-name'); //
-    var selectedRestaurants= [];
+    var restaurantNameInput = document.querySelector('#restaurant-name');
+    var selectedRestaurants = [];
     var selectedLunchBtn = document.querySelector("#select-lunch");
     var randomRestaurantDiv = document.querySelector("#random-restaurant");
     var restaurantList = document.querySelector('#selected-restaurants');
-    
+    var spanModalClose = document.getElementsByClassName("close")[0];
+    var warningModal = document.querySelector("#warningModal");
+
     var zipCode = localStorage.getItem("zip");
     var radius = localStorage.getItem("radius");
 
@@ -44,19 +46,29 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function lunchRandomGenerate() {
-        var warningModal = document.querySelector("#warningModal");
 
-        if(selectedRestaurants.length > 0) {
-        var randomIndex = Math.floor(Math.random() * selectedRestaurants.length);
-        var selectedRestaurant = selectedRestaurants[randomIndex];
-        randomRestaurantDiv.textContent = selectedRestaurant;
+        if (selectedRestaurants.length > 0) {
+            var randomIndex = Math.floor(Math.random() * selectedRestaurants.length);
+            var selectedRestaurant = selectedRestaurants[randomIndex];
+            randomRestaurantDiv.textContent = selectedRestaurant;
         } else {
-            return warningModal;
+            warningModal.style.display = "block";
         }
     }
 
-    if(selectedLunchBtn) {
+    if (selectedLunchBtn) {
         selectedLunchBtn.addEventListener("click", lunchRandomGenerate)
-    }
+    };
+
+    spanModalClose.onclick = function () {
+        warningModal.style.display = "none";
+        console.log("Clicked")
+    }; // need to make this work 
+
+    window.onclick = function (event) {
+        if (event.target == warningModal) {
+            warningModal.style.display = "none"
+        }
+    };
 });
 

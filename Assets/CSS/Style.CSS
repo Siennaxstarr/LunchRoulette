@@ -48,3 +48,7 @@ btn[disabled]:hover {
     box-shadow: none;
     transform: none;
 }
+
+.modal {
+    display: none;
+}

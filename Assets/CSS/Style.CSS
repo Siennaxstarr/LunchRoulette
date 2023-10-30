@@ -1,14 +1,21 @@
-html, body {
+body, html {
     width: 100%;
-    height:100%;
-  }
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+}
   
   /* Background color gradient effect */
   body {
-      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, yellow);
       background-size: 400% 400%;
       animation: gradient 15s ease infinite;
       display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; 
   }
   
   @keyframes gradient {
@@ -24,6 +31,63 @@ html, body {
   }
   /* --------- */
 
+    header {
+        background-color: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, yellow);
+        color: black;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+    }
+
+    header::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 450px; /* Adjust the width of the line */
+        height: 4px; /* Adjust the height/thickness of the line */
+        background-color: #fff;
+        transform: translateX(-50%); 
+    }
+
+    h1 { 
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 30px;
+    }
+
+    .card {
+        background-color: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        padding: 20px;
+        margin: 20px;
+        border-radius: 5px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
   .btn {
     font-size: 1.8rem;
     padding: 1rem 0;
@@ -32,19 +96,53 @@ html, body {
     border: 0.1rem solid gray;
     margin-bottom: 1rem;
     text-decoration: none;
-    color: gray;
     background-color: white;
 }
 
 .btn:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
     transform: translateY(-0.1rem);
     transition: transform 150ms;
+    background-color: #4c00ff; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #b91fb9, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+    transition: box-shadow 0.3s ease; 
 }
 
-btn[disabled]:hover {
+.btn[disabled]:hover {
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
+}
+
+.modal {
+    display: none;
+}
+a.btn {
+    text-align: center;
+    text-decoration: none;
+    color: #da373d; 
+    padding: 10px 20px;
+    border: 1px solid #da373d;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+a.btn:hover {
+    background-color: #00d9ff;
+    color: black;
+}
+
+
+
+
+
+
+
+
+.modal {
+    display: none;
 }

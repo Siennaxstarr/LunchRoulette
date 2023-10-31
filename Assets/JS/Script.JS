@@ -28,6 +28,35 @@
         }
     };
 
+    fetch('https://http-cors-proxy.p.rapidapi.com/https://jsonplaceholder.typicode.com/posts/1', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+
+    try {
+        const response = fetch(url, options);
+        const result = response.text();
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
+    const getData = function() {
+        result.innerText = 'Loading. . .'
+        const options = {
+          method: 'GET',
+          headers: {
+            origin: 'example.com',
+            'x-requested-with': 'example.com',
+            'X-RapidAPI-Key': 'f4ca74793cmsh19e56f0c91fbf97p1c6999jsna8245517a0a5',
+            'X-RapidAPI-Host': 'http-cors-proxy.p.rapidapi.com'
+          }
+        };
+        fetch("https://http-cors-proxy.p.rapidapi.com/https://api.yelp.com/v3/businesses/search?location=$91733")
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
+    };
+
     //API Functionality
 
     function getRestaurants() {

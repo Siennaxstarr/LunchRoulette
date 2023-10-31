@@ -18,6 +18,16 @@
     //Might need to scrap radius since it doesnt appear like yelp takes radius as a param
     var radius = localStorage.getItem("radius");
 
+    const firstUrl = "https://cors-proxy.p.rapidapi.com/"
+    const url = 'https://cors-proxy.p.rapidapi.com/proxy?url=https%3A%2F%2Fwww.google.de';
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '2533ec1a1amshf6c5a3c72a4243ap124946jsn68c2d2fed973',
+            'X-RapidAPI-Host': 'cors-proxy.p.rapidapi.com'
+        }
+    };
+
     //API Functionality
 
     function getRestaurants() {

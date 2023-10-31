@@ -1,5 +1,5 @@
 
-document.addEventListener('DOMContentLoaded')
+    document.addEventListener('load', function () {
     var zipCodeEl = document.querySelector("#zip");
     var radiusEl = document.querySelector("#radius");
     var landingPageBtn = document.querySelector('#landingBtn');
@@ -145,4 +145,4 @@ document.addEventListener('DOMContentLoaded')
                 warningModal.style.display = "none"
             }
         };
-    
+    });

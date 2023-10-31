@@ -143,6 +143,7 @@ a.btn:hover {
 body,html {
     text-align: center;
     overflow-x: hidden;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #user-selection {

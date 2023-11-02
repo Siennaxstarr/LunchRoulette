@@ -20,6 +20,7 @@ window.addEventListener('load', function () {
             return cityName;
         }
     }
+
     async function getRestaurants(cityName, state) {
         const formattedCity = await formatCity(cityName);
         //URL WE'RE FETCHING FROM

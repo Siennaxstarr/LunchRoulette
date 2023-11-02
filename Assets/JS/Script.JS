@@ -28,7 +28,7 @@ window.addEventListener('load', function () {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '2533ec1a1amshf6c5a3c72a4243ap124946jsn68c2d2fed973',
+                'X-RapidAPI-Key': 'd6fa12420amshb8e053b676b83fdp15e617jsned4bcaac7e28',
                 'X-RapidAPI-Host': 'restaurants-near-me-usa.p.rapidapi.com',
             }
         };

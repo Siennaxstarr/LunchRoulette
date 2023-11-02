@@ -1,7 +1,6 @@
-
-    document.addEventListener('load', function () {
+window.addEventListener('load', function () {
     var zipCodeEl = document.querySelector("#zip");
-    var radiusEl = document.querySelector("#radius");
+    var stateEl = document.querySelector("#state");
     var landingPageBtn = document.querySelector('#landingBtn');
     var selectedRestaurantAddBtn = document.querySelector('#add-restaurant');
     var restaurantNameInput = document.querySelector('#restaurant-name');
@@ -11,138 +10,87 @@
     var restaurantList = document.querySelector('#selected-restaurants');
     var spanModalClose = document.getElementsByClassName("close")[0];
     var warningModal = document.querySelector("#warningModal");
-
-    //We can probably change this to either zip code OR city as YELP API takes both inputs in a single param
-    var zipCode = localStorage.getItem("zip");
-
-    //Might need to scrap radius since it doesnt appear like yelp takes radius as a param
-    var radius = localStorage.getItem("radius");
-
-    const firstUrl = "https://cors-proxy.p.rapidapi.com/"
-    const url = 'https://cors-proxy.p.rapidapi.com/proxy?url=https%3A%2F%2Fwww.google.de';
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '2533ec1a1amshf6c5a3c72a4243ap124946jsn68c2d2fed973',
-            'X-RapidAPI-Host': 'cors-proxy.p.rapidapi.com'
-        }
-    };
-
-    fetch('https://http-cors-proxy.p.rapidapi.com/https://jsonplaceholder.typicode.com/posts/1', options)
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
-
-    try {
-        const response = fetch(url, options);
-        const result = response.text();
-        console.log(result);
-    } catch (error) {
-        console.error(error);
-    }
-    const getData = function() {
-        result.innerText = 'Loading. . .'
-        const options = {
-          method: 'GET',
-          headers: {
-            origin: 'example.com',
-            'x-requested-with': 'example.com',
-            'X-RapidAPI-Key': 'f4ca74793cmsh19e56f0c91fbf97p1c6999jsna8245517a0a5',
-            'X-RapidAPI-Host': 'http-cors-proxy.p.rapidapi.com'
-          }
-        };
-        fetch("https://http-cors-proxy.p.rapidapi.com/https://api.yelp.com/v3/businesses/search?location=$91733")
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
-
-    };
-
     //API Functionality
-
-    function getRestaurants() {
-        var apiKey = "45tfPm96CvqZsW-ts-INSRMufGdVHo4g6f64M9NvsbbBNiVAj0Nw8Vv8sJGDpJdQvLuhQ9quIS4Uvav_fYLM9K3dd1qWGaaBKDX28EEZ2Ii33mxtKikiqijcX11AZXYx";
-        var requestedLocationZipCode = "91733";
-        var requestedLocation = `https://api.yelp.com/v3/businesses/search?location=${requestedLocationZipCode}`;
-
-        try {
-            const response = fetch(requestedLocation, {
-                headers: {
-                    Authorization: `Bearer ${apiKey}`,
-                    Accept: "application/json",
-                    "Access-Control-Allow-Origin": '*',
-                    mode: 'no-cors'
-                    // Connection: 'keep-alive',
-                    // Server: 'envoy'
-                }
-            });
-
-            if (response.ok) {
-                const data = response.json();
-                console.log(data);
-            } else {
-                console.error(`ERROR: ${response.status}`);
-            }
-        } catch(error) {
-            console.log(error);
+    async function formatCity(cityName) {
+        // Check if the city name includes spaces and replace them with '%20 because of the nature of the API's accepted params
+        // If name has a space/whitespace, it will replace it with %20
+        if (cityName.includes(' ')) {
+            return cityName.replace(/\s/g, '%20');
+        } else {
+            return cityName;
         }
     }
-
-    getRestaurants()
-
+    async function getRestaurants(cityName, state) {
+        const formattedCity = await formatCity(cityName);
+        //URL WE'RE FETCHING FROM
+        const url = `https://restaurants-near-me-usa.p.rapidapi.com/restaurants/location/state/${state}/city/${formattedCity}/0`;
+        //HEADERS
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '2533ec1a1amshf6c5a3c72a4243ap124946jsn68c2d2fed973',
+                'X-RapidAPI-Host': 'restaurants-near-me-usa.p.rapidapi.com',
+            }
+        };
+        try {
+            const response = await fetch(url, options);
+            const result = await response.json();
+            console.log(result);
+        } catch (err) {
+            console.error(err);
+        }
+    }
     function redirectPage() {
-                    location.replace("./landing.html");
-                }
-
+        location.replace("./landing.html");
+    }
     if (landingPageBtn) {
-            landingPageBtn.addEventListener('click', function () {
-                var zipCodeElValue = zipCodeEl.value;
-                var radiusElValue = radiusEl.value;
-
-                localStorage.setItem("zip", zipCodeElValue);
-                localStorage.setItem("radius", radiusElValue);
-
-                redirectPage();
-            });
+        landingPageBtn.addEventListener('click', async function () {
+            var zipCodeElValue = zipCodeEl.value;
+            var stateElValue = stateEl.value;
+    
+            localStorage.setItem("zip", zipCodeElValue);
+            localStorage.setItem("state", stateElValue);
+            var zipCode = localStorage.getItem("zip");
+            //Might have to delete radius since our new API doesn't take ZIP as a param
+            var state = localStorage.getItem("state");
+    
+            await getRestaurants(zipCode, state);
+    
+            // Redirect to the landing page
+            redirectPage();
+        });
+    }
+    if (selectedRestaurantAddBtn) {
+        selectedRestaurantAddBtn.addEventListener('click', function () {
+            var newLi = document.createElement('li');
+            var restaurantNameValue = restaurantNameInput.value; //
+            var textNode = document.createTextNode(restaurantNameValue);
+            newLi.appendChild(textNode);
+            restaurantList.appendChild(newLi);
+            selectedRestaurants.push(restaurantNameValue);
+            var parsedData = JSON.stringify(selectedRestaurants)
+            console.log(parsedData)
+        });
+    }
+    function lunchRandomGenerate() {
+        console.log("BUTTON CLICKED")
+        if (selectedRestaurants.length > 0) {
+          var randomIndex = Math.floor(Math.random() * selectedRestaurants.length);
+          var selectedRestaurant = selectedRestaurants[randomIndex];
+          randomRestaurantDiv.textContent = selectedRestaurant;
+          console.log(selectedRestaurant)
+        } else {
+          warningModal.style.display = "block";
         }
-
-        if (selectedRestaurantAddBtn) {
-            selectedRestaurantAddBtn.addEventListener('click', function () {
-                var newLi = document.createElement('li');
-                var restaurantNameValue = restaurantNameInput.value; //
-                var textNode = document.createTextNode(restaurantNameValue);
-                newLi.appendChild(textNode);
-                restaurantList.appendChild(newLi);
-                selectedRestaurants.push(restaurantNameValue);
-
-                var parsedData = JSON.stringify(selectedRestaurants)
-                console.log(parsedData)
-            });
+      }
+    selectedLunchBtn.addEventListener("click", lunchRandomGenerate);
+    spanModalClose.onclick = function () {
+        warningModal.style.display = "none";
+        console.log("Clicked")
+    }; // need to make this work 
+    window.onclick = function (event) {
+        if (event.target == warningModal) {
+            warningModal.style.display = "none"
         }
-
-        function lunchRandomGenerate() {
-
-            if (selectedRestaurants.length > 0) {
-                var randomIndex = Math.floor(Math.random() * selectedRestaurants.length);
-                var selectedRestaurant = selectedRestaurants[randomIndex];
-                randomRestaurantDiv.textContent = selectedRestaurant;
-            } else {
-                warningModal.style.display = "block";
-            }
-        }
-
-        if (selectedLunchBtn) {
-            selectedLunchBtn.addEventListener("click", lunchRandomGenerate)
-        };
-
-        spanModalClose.onclick = function () {
-            warningModal.style.display = "none";
-            console.log("Clicked")
-        }; // need to make this work 
-
-        window.onclick = function (event) {
-            if (event.target == warningModal) {
-                warningModal.style.display = "none"
-            }
-        };
-    });
+    };
+});

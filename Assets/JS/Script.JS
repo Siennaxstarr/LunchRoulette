@@ -103,3 +103,5 @@ function lunchRandomGenerate() {
     warningModal.style.display = "block";
   }
 }
+
+selectedLunchBtn.addEventListener('click', lunchRandomGenerate)

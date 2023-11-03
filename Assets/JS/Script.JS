@@ -10,6 +10,7 @@ var restaurantList = document.querySelector('#selected-restaurants');
 var spanModalClose = document.getElementsByClassName("close")[0];
 var warningModal = document.querySelector("#warningModal");
 var restaurantSearchList = document.querySelector('#restaurantSearchList');
+var randomlySelectedLunchList = document.querySelector('#randomlySelectedLunchList')
 
 async function formatCity(cityName) {
   if (cityName.includes(' ')) {
@@ -81,7 +82,7 @@ if (selectedRestaurantAddBtn) {
     var restaurantNameValue = restaurantNameInput.value;
     var textNode = document.createTextNode(restaurantNameValue);
     newLi.appendChild(textNode);
-    restaurantSearchList.appendChild(newLi);
+    randomlySelectedLunchList.appendChild(newLi);
     selectedRestaurants.push(restaurantNameValue);
     var parsedData = JSON.stringify(selectedRestaurants);
     console.log(parsedData);

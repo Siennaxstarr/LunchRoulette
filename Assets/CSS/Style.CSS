@@ -208,15 +208,10 @@ margin-bottom: -1em;
 font-size: small;
 }
 
-
-
-
-
-
-
-
-
-
 .modal {
-display: none;
+    display: none;
+}
+
+ul {
+    list-style-type: none;
 }

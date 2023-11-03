@@ -14,13 +14,23 @@
             <p class="text-xl">Try new places near you!</p>
         </header>
 
+
+<body>
+    <header>
+        <h1>LunchRoulette</h1>
+        <p>Try new places near you!</p>
+    </header>
+      
     <section id="zip-form" class="card">
         <h2>Enter ZIP Code and Preferred Radius</h2>
         <form id="zip-radius-form">
             <label for="zip">City:</label>
+
+
             <input type="text" id="zip" name="zip" required class="w-full px-4 py-2 border rounded-lg">
-            <label for="state">State:</label>
+            <label for="state">State(Abbreviation):</label>
             <input type="text" id="state" name="state" required class="w-full px-4 py-2 border rounded-lg">
+
             <button id="landingBtn" type="button" class="btn">Submit</button>
             <div>
               <!-- The list below will throw an error if it's commented out, but the JS code will generate a list.

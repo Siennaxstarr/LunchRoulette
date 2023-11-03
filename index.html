@@ -1,51 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Lunch Selector</title>
-    <link rel="stylesheet" href="./Assets/CSS/Style.CSS">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                clifford: '#da373d',
-              }
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Lunch Selector</title>
+  <link rel="stylesheet" href="./Assets/CSS/Style.CSS">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
           }
         }
-      </script>
-    <style type="text/tailwindcss">
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
     @layer utilities {
         .content-auto {
         content-visibility: auto;
         }
     }
-    </style> 
-</head> 
+    </style>
+</head>
+
 <body>
-    <header>
-        <h1>LunchRoulette</h1>
-        <p>Try new places near you!</p>
-    </header>
-​
-    <section id="zip-form" class="card">
-        <h2>Enter ZIP Code and Preferred Radius</h2>
-        <form id="zip-radius-form">
-            <label for="zip">City:</label>
-            <input type="text" id="zip" name="zip" required>
-            <label for="state">State:</label>
-            <input type="text" id="state" name="state" required>
-            <button id="landingBtn" type="button" class="btn">Submit</button>
-            <div>
-              <!-- The list below will throw an error if it's commented out, but the JS code will generate a list.
+  <header>
+    <h1>LunchRoulette</h1>
+    <p>Try new places near you!</p>
+  </header>
+  ​
+  <section id="zip-form" class="card">
+    <h2>Enter ZIP Code and Preferred Radius</h2>
+    <form id="zip-radius-form">
+      <label for="zip">City:</label>
+      <input type="text" id="zip" name="zip" required>
+      <label for="state">State:</label>
+      <input type="text" id="state" name="state" required>
+      <button id="landingBtn" type="button" class="btn">Submit</button>
+      <div>
+        <!-- The list below will throw an error if it's commented out, but the JS code will generate a list.
               If it's not commented out, it's going to create a list upon load based on whatever was stored on localstorage prior -->
-              <!-- <ul id="restaurantSearchList"></ul> -->
-            </div>
-         </form>
-    </section>
-    <script src="./Assets/JS/Script.JS"></script> 
+        <!-- <ul id="restaurantSearchList"></ul> -->
+      </div>
+    </form>
+  </section>
+
+  <div id="giphy-container">
+    <div id="giphy-image"></div>
+  </div>
+
+  <script src="./Assets/JS/home.js"></script>
+  <script src="./Assets/JS/Script.JS"></script>
 </body>
+
 </html>

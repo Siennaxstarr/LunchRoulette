@@ -12,7 +12,6 @@
         <ul id="restaurant-list">
         </ul>
     </section>
-
     <section id="user-selection" class="card">
         <h2>My Selection</h2>
         <form id="user-selection-form">
@@ -24,21 +23,26 @@
         <div id="restaurant-name">Restaurant Name</div>
         <button id="select-lunch">Randomly Select My Lunch</button>
     </section>
-
-    <div id="lunch-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Your Randomly Selected Lunch Place:</h3>
-            <p id="random-restaurant">No place selected yet.</p>
-        </div>
+    <div id="restaurantSearch">
+        <ul id="restaurantSearchList"></ul>
+        <ul id="randomlySelectedLunchList">Your Randomly Selected Lunch List:</ul>
     </div>
-    <div id="warningModal" class="modal">
+<!-- Random Restaurant will not be selected cause of this modal BUG -->
+    <!-- <div id="lunch-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span> -->
+            <h3>Your Randomly Selected Lunch Place:</h3>
+            <div id="random-restaurant">No place selected yet.</div>
+        <!-- </div>
+    </div> -->
+    
+    <!-- <div id="warningModal" class="modal">
         <div class="modal-content">
             <span class="close"><button>&times;</button></span>
             <h3>No restaurant selected</h3>
             <p id="warning-text">Please enter restaurant name and try again</p>
         </div>
-    </div>
+    </div> -->
     <script src="./Assets/JS/Script.JS"></script>
 </body>
 </html>

@@ -5,209 +5,207 @@ body, html {
     padding: 0;
     font-family: 'Courier New', Courier, monospace;
     font-size: x-large;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    /* Comment: Removed 'justify-content' and 'align-items' properties, they are handled by Tailwind CSS */
+    /* Removed 'text-align' as Tailwind CSS will handle text alignment */
 }
-  
-  /* Background color gradient effect */
-  body {
-      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, yellow);
-      background-size: 400% 400%;
-      animation: gradient 15s ease infinite;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center; 
-  }
-  
-  @keyframes gradient {
-      0% {
-          background-position: 0% 50%;
-      }
-      50% {
-          background-position: 100% 50%;
-      }
-      100% {
-          background-position: 0% 50%;
-      }
-  }
-  /* --------- */
 
-    header {
-        background-color: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, yellow);
-        color: black;
-        text-align: center;
-        padding: 20px;
-        position: relative;
-    }
+    /* Background color gradient effect */
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, yellow);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
 
-    header::after {
-        content: "";
-        display: block;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: 450px; /* Adjust the width of the line */
-        height: 4px; /* Adjust the height/thickness of the line */
-        background-color: #fff;
-        transform: translateX(-50%); 
-    }
+    /* Comment: Removed 'display', 'flex-direction', 'justify-content', and 'align-items' properties */
+}
 
-    h1 { 
-        font-size: 30px;
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
     }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 
-    p {
-        font-size: 30px;
-    }
+    /* Header Styling */
+header {
+    background-color: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, yellow);
 
-    .card {
-        background-color: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-        padding: 20px;
-        margin: 5px;
-        border-radius: 5px;
-    }
+    /* Comment: Removed 'color' property to let Tailwind CSS handle text color */
+    /* Removed 'text-align' property */
+    /* Removed 'padding' property */
 
-    h2 {
-        font-size: 24px;
-    }
+    position: relative;
+}
 
-    form {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
+header::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 450px;
+    height: 4px;
+    background-color: #fff;
+    transform: translateX(-50%);
+}
+h1 { 
+    font-size: 30px;
+}
 
-    label {
-        font-weight: bold;
-    }
+p {
+    font-size: 30px;
+}
 
-    input[type="text"],
-    input[type="number"] {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    
-  .btn {
-    font-size: 1.8rem;
-    padding: 1rem 0;
-    width: 20rem;
-    text-align: center;
-    margin-bottom: 1rem;
-    text-decoration: none;
-    background-color: white;
+.card {
+    background-color: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    padding: 20px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn {
+font-size: 1.8rem;
+padding: 1rem 0;
+width: 20rem;
+text-align: center;
+margin-bottom: 1rem;
+text-decoration: none;
+background-color: white;
 }
 
 .btn:hover {
-    cursor: pointer;
-    transform: translateY(-0.1rem);
-    transition: transform 150ms;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #b91fb9, 0 0 20px #ff00ff, 0 0 50px #ff00ff;
-    transition: box-shadow 0.3s ease; 
+cursor: pointer;
+transform: translateY(-0.1rem);
+transition: transform 150ms;
+padding: 5px 10px;
+border: none;
+border-radius: 10px;
+box-shadow: 0 0 10px #b91fb9, 0 0 20px #ff00ff, 0 0 50px #ff00ff;
+transition: box-shadow 0.3s ease; 
 }
 
 .btn[disabled]:hover {
-    cursor: not-allowed;
-    box-shadow: none;
-    transform: none;
+cursor: not-allowed;
+box-shadow: none;
+transform: none;
 }
 
 .modal {
-    display: none;
+display: none;
 }
 a.btn {
-    text-align: center;
-    text-decoration: none;
-    color: #da373d; 
-    padding: 10px 20px;
-    border: 1px solid #da373d;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: 10px;
+text-align: center;
+text-decoration: none;
+color: #da373d; 
+padding: 10px 20px;
+border: 1px solid #da373d;
+border-radius: 5px;
+display: inline-block;
+margin-top: 10px;
 }
 
 a.btn:hover {
-    background-color: #00d9ff;
-    color: black;
+background-color: #00d9ff;
+color: black;
 }
 
 /*----------Landing html---------*/
 
 
 body,html {
-    text-align: center;
-    overflow-x: hidden;
+text-align: center;
+overflow-x: hidden;
 }
 
 #user-selection {
-    text-align: center;
+text-align: center;
 }
 
 #restaurant-name {
-    font-family: 'Courier New', Courier, monospace;
-    font-family: bold;
-    font-size: 35px; 
-    margin-top: 20px;
+font-family: 'Courier New', Courier, monospace;
+font-family: bold;
+font-size: 35px; 
+margin-top: 20px;
 }
 
 #select-lunch {
-    font-family: 'Courier New', Courier, monospace;
-    font-family: bold;
-    font-size: x-large;
-    padding: 10px 30px;
-    border: 1px white;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    position: relative;
-    top: 20px;
+font-family: 'Courier New', Courier, monospace;
+font-family: bold;
+font-size: x-large;
+padding: 10px 30px;
+border: 1px white;
+border-radius: 5px;
+transition: background-color 0.3s ease;
+position: relative;
+top: 20px;
 }
 
 #select-lunch:hover {
-    box-shadow: 0 0 10px #b91fb9, 0 0 20px #ff00ff, 0 0 50px #ff00ff;
+box-shadow: 0 0 10px #b91fb9, 0 0 20px #ff00ff, 0 0 50px #ff00ff;
 }
 
 .button-container {
-    text-align: center;
+text-align: center;
 }
 
 #add-restaurant {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: larger;
-    padding: 10px 30px;
-    border: 1px solid white;
-    border-radius: 5px;
+font-family: 'Courier New', Courier, monospace;
+font-size: larger;
+padding: 10px 30px;
+border: 1px solid white;
+border-radius: 5px;
 }
 
 #add-restaurant:hover {
-    box-shadow: 0 0 10px #b91fb9, 0 0 20px #ff00ff, 0 0 50px #ff00ff;
+box-shadow: 0 0 10px #b91fb9, 0 0 20px #ff00ff, 0 0 50px #ff00ff;
 }
 
 #nearby-restaurants h2 {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: xx-large;
-    color: #000000;
-    margin: 0;
-    margin-bottom: -5em;
-    padding: 0;
-    position: relative;
+font-family: 'Courier New', Courier, monospace;
+font-size: xx-large;
+color: #000000;
+margin: 0;
+margin-bottom: -5em;
+padding: 0;
+position: relative;
 }
 
 #nearby-restaurants h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: whitesmoke;
-    margin-bottom: -1em;
-    font-size: small;
+content: '';
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 3px;
+background: whitesmoke;
+margin-bottom: -1em;
+font-size: small;
 }
 
 .modal {

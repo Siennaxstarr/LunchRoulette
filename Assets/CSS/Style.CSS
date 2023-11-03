@@ -210,15 +210,10 @@ body,html {
     font-size: small;
 }
 
-
-
-
-
-
-
-
-
-
 .modal {
     display: none;
+}
+
+ul {
+    list-style-type: none;
 }

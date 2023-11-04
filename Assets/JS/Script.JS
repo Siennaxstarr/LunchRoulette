@@ -10,7 +10,7 @@ var restaurantList = document.querySelector('#selected-restaurants');
 var spanModalClose = document.getElementsByClassName("close")[0];
 var warningModal = document.querySelector("#warningModal");
 var restaurantSearchList = document.querySelector('#restaurantSearchList');
-var randomlySelectedLunchList = document.querySelector('#randomlySelectedLunchList')
+var randomlySelectedLunchList = document.querySelector('#random-restaurant')
 
 async function formatCity(cityName) {
   if (cityName.includes(' ')) {

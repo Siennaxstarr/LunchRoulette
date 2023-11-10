@@ -214,3 +214,8 @@ font-size: small;
 ul {
     list-style-type: none;
 }
+
+#giphy-container, #giphy-image {
+    display: inline-block;
+
+}
